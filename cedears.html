@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/MainTeplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="Styles/MainStyle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Templates/jquery-3.6.0.min.js"></script>
+
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Mervalito: Información importante de los CEDEAR's</title>
+<!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+	
+<link rel="apple-touch-icon" sizes="57x57" href="/Images/Favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/Images/Favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/Images/Favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/Images/Favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/Images/Favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/Images/Favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/Images/Favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/Images/Favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Images/Favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/Images/Favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/Images/Favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/Images/Favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Images/Favicon/favicon-16x16.png">
+<link rel="manifest" href="/Images/Favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/Images/Favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+	
+</head>
+
+<body>
+
+<div id="top-menu">
+
+	<ul>
+    	<li><a href="index.html">Home</a></li>
+		<li><a href="#">Acciones</a></li>
+		<li><a href="#">Bonos</a></li>
+     	<li><a href="options_strats.html">Opciones</a></li>
+		<li><a href="cedears.html">Cedears</a></li>
+	</ul>
+        
+</div>
+
+<div id="content">
+
+<!-- InstanceBeginEditable name="ContenidoParticular" -->
+
+<div id="stockIndicator">Retrieving stock information....</div>
+<div id="stockContainer"></div>
+
+
+<script>
+
+	var container = document.getElementById("stockContainer");
+	var indicator = document.getElementById("stockIndicator");
+	
+	alert(container)
+	alert(indicator)
+
+	// Create the instance
+
+	var request = new Request.Stocks({
+
+    // Stocks to retrieve
+
+    stocks: ["AAPL","GOOG","MSFT"],
+
+    // Formatter upon result
+
+    onComplete: function(result) {
+
+      // Log out the result to see the structure
+
+      console.warn(result);
+
+      // Hide the indicator
+
+      indicator.fade(0);
+
+      // Create a template with which to display the information
+
+      var template = '({symbol}) {Name} {Ask} {Change} {ChangeinPercent}';
+
+      // For every stock , display its information in the template
+
+      var html ="";
+
+      Array.from(result.query.results.quote).each(function(quote) {
+
+        // Add an "UpDown" property to the quote object
+
+        var change = Number.from(quote.Change);
+
+        quote.UpDown =  change == 0 ? "Same" : change > 0 ? "Up" : "Down";
+
+        // Update running contnet
+
+        html += template.substitute(quote);
+
+      });
+
+      // Update the content
+
+      container.set("html",html);
+
+    },
+
+    // Show the indicator upon request
+
+    onRequest: function () {
+
+      indicator.fade(1);
+
+    }
+
+  });
+
+  // Send the request every 20 seconds
+
+  (function() {
+
+    request.send();
+
+  }).periodical(20 * 1000);
+
+  // Send right away
+
+  request.send();
+
+</script>
+
+<!-- InstanceEndEditable --> 
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

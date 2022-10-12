@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/MainTeplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="Styles/MainStyle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Templates/jquery-3.6.0.min.js"></script>
+
+
+<!-- InstanceBeginEditable name="doctitle" -->
+
+<title>Mervalito: Todas las estrategias con opciones estan aquí</title>
+
+<script>	
+	$(document).ready(function(){
+		$("input[type=checkbox]").change(Filter);
+		
+		$("#mostrarTodo").click(
+			function(){
+				$("div").show();
+				$("input[type=checkbox]").prop("checked", false);
+			}
+		)
+	});
+	
+	function Filter()
+	{
+		$(".product-item").show();
+		
+		if (!($("#cobrando").is(':checked')))
+		{
+			$(".cobrando").hide();
+		}
+		if (!($("#pagando").is(':checked')))
+		{
+			$(".pagando").hide();
+		}
+		
+		
+		if (!($("#bajista").is(':checked')))
+		{
+			$(".bajista").hide();
+		}
+		if (!($("#algobajista").is(':checked')))
+		{
+			$(".algo-bajista").hide();
+		}
+		if (!($("#centro").is(':checked')))
+		{
+			$(".centro").hide();
+		}
+		if (!($("#algoalcista").is(':checked')))
+		{
+			$(".algo-alcista").hide();
+		}
+		if (!($("#alcista").is(':checked')))
+		{
+			$(".alcista").hide();
+		}
+		
+		
+	}
+	
+	
+	//El quitar filtros deberia de ser un boton que se habilite y deshabilite mejor no un check
+	
+</script>
+
+<!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+	
+<link rel="apple-touch-icon" sizes="57x57" href="/Images/Favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/Images/Favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/Images/Favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/Images/Favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/Images/Favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/Images/Favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/Images/Favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/Images/Favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Images/Favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/Images/Favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/Images/Favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/Images/Favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Images/Favicon/favicon-16x16.png">
+<link rel="manifest" href="/Images/Favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/Images/Favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+	
+</head>
+
+<body>
+
+<div id="top-menu">
+
+	<ul>
+    	<li><a href="index.html">Home</a></li>
+		<li><a href="#">Acciones</a></li>
+		<li><a href="#">Bonos</a></li>
+     	<li><a href="options_strats.html">Opciones</a></li>
+		<li><a href="cedears.html">Cedears</a></li>
+	</ul>
+        
+</div>
+
+<div id="content">
+
+<!-- InstanceBeginEditable name="ContenidoParticular" -->
+
+	<div class="wrap">
+		<h1>Estrategias</h1>
+		<div class="store-wrapper">
+			<div class="category_list">
+            
+            <input type="button" id="mostrarTodo" value="Mostrar Todo"> 
+            
+                <p>Capital</p>
+                
+              <label><input type="checkbox" id="cobrando" value="cobrando_checkbox"> Cobrando</label> <br />
+              <label><input type="checkbox" id="pagando" value="pagando_checkbox"> Pagando</label>
+                
+                <p>Rango de Ganancia</p>
+
+                <label><input type="checkbox" id="bajista" value="bajista_checkbox"> Bajista</label> <br />
+              	<label><input type="checkbox" id="algobajista" value="algo_bajista_checkbox"> Algo Bajista</label> <br />
+                <label><input type="checkbox" id="centro" value="centro_checkbox"> Centro</label> <br />
+                <label><input type="checkbox" id="algoalcista" value="algo_alcista_checkbox"> Algo Alcista</label> <br />
+                <label><input type="checkbox" id="alcista" value="alcista_checkbox"> Alcista</label> <br />
+                
+		  </div>
+            
+			<div id = "Strats" class="products-list">
+            
+            	<div class="product-item pagando centro algo-alcista">
+                
+                	<a href="Options_Strats/BCallBCall.html"><img src="Images/Opciones strats/BCallyBCall/finish.png" alt="" ></a>
+					<a href="Options_Strats/BCallBCall.html">Bull de Call + Bear de Call</a>
+                    
+                  <p>Rango Ganancia:  Centro - Algo Alcista</p>
+                  <p>Capital: Pagando</p>
+                  <p>VI Calls: Alta</p>
+                  <p>VI Puts: Indistinto</p>
+                    
+			  </div>
+              
+              <div class="product-item pagando centro algo-alcista alcista">
+                
+                	<a href="Options_Strats/BCallBCall rengo (Bull).html"><img src="Images/Opciones strats/BCallyBCall rengo (Bull)/finish.png" alt="" ></a>
+					<a href="Options_Strats/BCallBCall rengo (Bull).html">Bull de Call + Bear de Call rengo (Bull)</a>
+                    
+                <p>Rango Ganancia:  Centro - Algo Alcista - Alcista</p>
+                  <p>Capital: Pagando</p>
+                  <p>VI Calls: Alta</p>
+                  <p>VI Puts: Indistinto</p>
+                    
+			  </div>
+              
+              <div class="product-item pagando bajista algo-bajista centro algo-alcista">
+                
+                	<a href="Options_Strats/BCallBCall rengo (Bear).html"><img src="Images/Opciones strats/BCallyBCall rengo (Bear)/finish.png" alt="" ></a>
+					<a href="Options_Strats/BCallBCall rengo (Bear).html">Bull de Call + Bear de Call rengo (Bear)</a>
+                    
+                    <p>Rango Ganancia:  Bajista - Algo Bajista - Centro - Algo Alcista</p>
+                    <p>Capital: Pagando</p>
+                    <p>VI Calls: Alta</p>
+                    <p>VI Puts: Indistinto</p>
+                    
+			  </div>
+              
+              
+			  <div class="product-item cobrando centro">
+                
+                	<a href="Options_Strats/RatioPutsSintetico.html"><img src="Images/Opciones strats/RPSints/Ratio Puts sinteticos.png" alt="" ></a>
+					<a href="Options_Strats/RatioPutsSintetico.html">Ratios Sinteticos de puts</a>
+                    
+                    <p>Rango Ganancia: Centro</p>
+                    <p>Capital: Cobrando</p>
+                    <p>VI: ?</p>
+                    
+				</div>
+                
+				<div class="product-item cobrando bajista algo-bajista centro"> <a href="Options_Strats/RatioCallsSintetico.html"><img src="Images/Opciones strats/RCSints/Preview.png" alt="" ></a>
+					<a href="Options_Strats/RatioPutsSintetico.html">Ratios Sinteticos de Calls</a>
+                    <p>Rango Ganancia: Bajista - Algo Bajista - Centro</p>
+                    <p>Capital: Cobrando</p>
+                    <p>VI: ?</p>
+			  </div>
+              
+              <div class="product-item pagando bajista algo-bajista centro algo-alcista alcista"> <a href="Options_Strats/Collars.html"><img src="Images/Opciones strats/Collars/Preview.png" alt="Collars" ></a>
+					<a href="Options_Strats/Collars.html">Collars</a>
+                    
+                    <p>Rango Ganancia: Bajista - Algo Bajista - Centro - Algo Alcista - Alcista</p>
+					<p>Capital: Pagando</p>
+					<p>VI Calls: Alta</p>
+					<p>VI Puts: Baja</p>
+			  </div>
+			
+            <div class="product-item cobrando centro algo-alcista"> <a href="Options_Strats/RatioCalls.html"><img src="Images/Opciones strats/RCCalls/Graph.png" alt="Ratio Calls" ></a>
+					<a href="Options_Strats/Collars.html">Ratio de Calls</a>
+                    
+                    <p>Rango Ganancia: Centro - Algo Alcista</p>
+					<p>Capital: Cobrando</p>
+					<p>VI Calls: Alta</p>
+			  </div>
+              
+              <div class="product-item cobrando centro algo-bajista"> <a href="Options_Strats/RatioPuts.html"><img src="Images/Opciones strats/RCPuts/preview.png" alt="Ratio Calls" ></a>
+					<a href="Options_Strats/RatioPuts.html">Ratio de Puts</a>
+                    
+                <p>Rango Ganancia: Centro - Algo Alcista</p>
+					<p>Capital: Cobrando</p>
+					<p>VI Puts: Alta</p>
+			  </div>
+              
+              <div class="product-item cobrando bajista algo-bajista centro alcista"> <a href="Options_Strats/RatioInvCalls.html"><img src="Images/Opciones strats/RICall/Finish.png" alt="Ratio Calls" ></a>
+					<a href="Options_Strats/RatioInvCalls.html">Ratio Invertido de Calls</a>
+                    
+                    <p>Rango Ganancia: Bajista - Algo Bajista - Centro - Alcista</p>
+					<p>Capital: Cobrando</p>
+					<p>VI Calls: Baja</p>
+			  </div>
+              
+              <div class="product-item cobrando bajista centro algo-alcista alcista"> <a href="Options_Strats/RatioInvPuts.html"><img src="Images/Opciones strats/RIPuts/graph.png" alt="Ratio Invertido Puts" ></a>
+					<a href="Options_Strats/RatioInvPuts.html">Ratio Invertido de Puts</a>
+                    
+                <p>Rango Ganancia: Bajista - Centro - Algo Alcista - Alcista</p>
+					<p>Capital: Cobrando</p>
+					<p>VI Puts: Baja</p>
+			  </div>
+		  </section>
+		</div>
+	</div>
+  
+<!-- InstanceEndEditable --> 
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>
