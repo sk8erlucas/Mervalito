@@ -6,57 +6,116 @@
 <link href="Styles/MainStyle.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="Templates/jquery-3.6.0.min.js"></script>
 
+<!-- Bootrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 <!-- InstanceBeginEditable name="doctitle" -->
 
 <title>Mervalito: Todas las estrategias con opciones estan aquí</title>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	
 <script>	
 	$(document).ready(function(){
 		$("input[type=checkbox]").change(Filter);
+		$("input[type=radio]").click(Filter);
 		
 		$("#mostrarTodo").click(
 			function(){
 				$("div").show();
-				$("input[type=checkbox]").prop("checked", false);
+				$("input[type=checkbox]").prop("checked", true);
 			}
 		)
 	});
 	
+	let Cobrando;
+	let Pagando;
+	
+	let bajista;
+	let algoBajista;
+	let centro;
+	let algoAlcista;
+	let Alcista;
+	
 	function Filter()
 	{
-		$(".product-item").show();
+		//Primero ocultar todo
+		$("#Strats div").hide();
 		
-		if (!($("#cobrando").is(':checked')))
-		{
-			$(".cobrando").hide();
-		}
-		if (!($("#pagando").is(':checked')))
-		{
-			$(".pagando").hide();
-		}
+		//Guardamos todo en bools para que sea mas facil buscar
+		Cobrando = $("#cobrando").prop("checked");
+		Pagando = $("#pagando").prop("checked");
 		
 		
-		if (!($("#bajista").is(':checked')))
-		{
-			$(".bajista").hide();
-		}
-		if (!($("#algobajista").is(':checked')))
-		{
-			$(".algo-bajista").hide();
-		}
-		if (!($("#centro").is(':checked')))
-		{
-			$(".centro").hide();
-		}
-		if (!($("#algoalcista").is(':checked')))
-		{
-			$(".algo-alcista").hide();
-		}
-		if (!($("#alcista").is(':checked')))
-		{
-			$(".alcista").hide();
-		}
+		bajista = $("#bajista").prop("checked");
+		algoBajista = $("#algobajista").prop("checked");
+		centro = $("#centro").prop("checked");
+		algoAlcista = $("#algoalcista").prop("checked");
+		alcista = $("#alcista").prop("checked");
+		
+		//Debugging
+		console.log("Capital");
+		console.log("Cobrando = " + Cobrando);
+		console.log("Pagando = " + Pagando);
+		
+		console.log("Rango");
+		console.log("Bajista = " + bajista);
+		console.log("Algo Bajista = " + algoBajista);
+		console.log("Centro = " + centro);
+		console.log("Algo Alcista = " + algoAlcista);
+		console.log("Alcista = " + alcista);
+		
+		
+		// Recorremos todos las estrategias
+		$(".product-item").each(function(){
+			
+			// Veamos si esta cobra, no o las 2
+			let MostrarCobrando = false;
+			let MostrarPagando = false;
+			
+			if ($(this).hasClass("cobrando")) MostrarCobrando = true;
+			if ($(this).hasClass("pagando")) MostrarPagando = true;
+			
+			// Veamos si esta alcista, bajista, etc
+			
+			let MostrarBajista = false;
+			let MostrarAlgoBajista = false;
+			let MostrarCentro = false;
+			let MostrarAlgoAlcista = false;
+			let MostrarAlcista = false;
+			
+			if ($(this).hasClass("bajista")) MostrarBajista = true;
+			if ($(this).hasClass("algo-bajista")) MostrarAlgoBajista = true;
+			if ($(this).hasClass("centro")) MostrarCentro = true;
+			if ($(this).hasClass("algo-alcista")) MostrarAlgoAlcista = true;
+			if ($(this).hasClass("alcista")) MostrarAlcista = true;
+			
+			
+			// Comparamos los resultados para mostrar o queda oculta
+			
+			console.log(Cobrando)
+			console.log(MostrarCobrando)
+			
+			if (Cobrando == true)
+			{
+				if (MostrarCobrando == true)
+				{
+					$(this).show();
+					
+					//Aca debe buscar segun el rango
+				}
+			}
+			
+			if (Pagando == true)
+			{
+				if (MostrarPagando == true)
+				{
+					$(this).show();
+					
+					//Aca debe buscar segun el rango
+				}
+			}
+		})
 		
 		
 	}
@@ -108,7 +167,7 @@
 <div id="content">
 
 <!-- InstanceBeginEditable name="ContenidoParticular" -->
-
+	
 	<div class="wrap">
 		<h1>Estrategias</h1>
 		<div class="store-wrapper">
@@ -116,18 +175,41 @@
             
             <input type="button" id="mostrarTodo" value="Mostrar Todo"> 
             
-                <p>Capital</p>
+                <h3 class="mt-2">Capital</h3>
                 
-              <label><input type="checkbox" id="cobrando" value="cobrando_checkbox"> Cobrando</label> <br />
-              <label><input type="checkbox" id="pagando" value="pagando_checkbox"> Pagando</label>
-                
-                <p>Rango de Ganancia</p>
-
-                <label><input type="checkbox" id="bajista" value="bajista_checkbox"> Bajista</label> <br />
-              	<label><input type="checkbox" id="algobajista" value="algo_bajista_checkbox"> Algo Bajista</label> <br />
-                <label><input type="checkbox" id="centro" value="centro_checkbox"> Centro</label> <br />
-                <label><input type="checkbox" id="algoalcista" value="algo_alcista_checkbox"> Algo Alcista</label> <br />
-                <label><input type="checkbox" id="alcista" value="alcista_checkbox"> Alcista</label> <br />
+				<div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="cobrando" checked>
+				  <label class="form-check-label" for="cobrando">Cobrando</label>
+				</div>
+				
+				<div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="pagando" checked>
+				  <label class="form-check-label" for="pagando">Pagando</label>
+				</div>
+				
+				
+                <h3 class="mt-2">Rango</h3>
+				
+				<div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="bajista" checked>
+				  <label class="form-check-label" for="bajista">Bajista</label>
+				</div>
+			  <div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="algobajista" checked>
+			    <label class="form-check-label" for="algobajista">Algo Bajista</label>
+				</div>
+				<div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="centro" checked>
+				  <label class="form-check-label" for="centro">Centro</label>
+				</div>
+				<div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="algoalcista" checked>
+				  <label class="form-check-label" for="algoalcista">Algo Alcista</label>
+				</div>
+				<div class="form-check form-switch">
+				  <input class="form-check-input" type="checkbox" id="alcista" checked>
+				  <label class="form-check-label" for="alcista">Alcista</label>
+				</div>
                 
 		  </div>
             
@@ -138,10 +220,11 @@
                 	<a href="Options_Strats/BCallBCall.html"><img src="Images/Opciones strats/BCallyBCall/finish.png" alt="" ></a>
 					<a href="Options_Strats/BCallBCall.html">Bull de Call + Bear de Call</a>
                     
-                  <p>Rango Ganancia:  Centro - Algo Alcista</p>
-                  <p>Capital: Pagando</p>
-                  <p>VI Calls: Alta</p>
-                  <p>VI Puts: Indistinto</p>
+                  	<p class="mt-1">Rango: <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i></p>
+
+					  <p>Capital: Pagando</p>
+					  <p>VI Calls: Alta</p>
+					  <p>VI Puts: Indistinto</p>
                     
 			  </div>
               
@@ -150,7 +233,8 @@
                 	<a href="Options_Strats/BCallBCall rengo (Bull).html"><img src="Images/Opciones strats/BCallyBCall rengo (Bull)/finish.png" alt="" ></a>
 					<a href="Options_Strats/BCallBCall rengo (Bull).html">Bull de Call + Bear de Call rengo (Bull)</a>
                     
-                <p>Rango Ganancia:  Centro - Algo Alcista - Alcista</p>
+                	<p class="mt-1">Rango: <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i></p>
+				  
                   <p>Capital: Pagando</p>
                   <p>VI Calls: Alta</p>
                   <p>VI Puts: Indistinto</p>
@@ -161,8 +245,9 @@
                 
                 	<a href="Options_Strats/BCallBCall rengo (Bear).html"><img src="Images/Opciones strats/BCallyBCall rengo (Bear)/finish.png" alt="" ></a>
 					<a href="Options_Strats/BCallBCall rengo (Bear).html">Bull de Call + Bear de Call rengo (Bear)</a>
-                    
-                    <p>Rango Ganancia:  Bajista - Algo Bajista - Centro - Algo Alcista</p>
+				  
+                    <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i></p>
+				  
                     <p>Capital: Pagando</p>
                     <p>VI Calls: Alta</p>
                     <p>VI Puts: Indistinto</p>
@@ -172,26 +257,30 @@
               
 			  <div class="product-item cobrando centro">
                 
-                	<a href="Options_Strats/RatioPutsSintetico.html"><img src="Images/Opciones strats/RPSints/Ratio Puts sinteticos.png" alt="" ></a>
+                	<a href="Options_Strats/RatioPutsSintetico.html"><img src="Images/Opciones strats/RPSints/finish.png" alt="" ></a>
 					<a href="Options_Strats/RatioPutsSintetico.html">Ratios Sinteticos de puts</a>
                     
-                    <p>Rango Ganancia: Centro</p>
+               	<p class="mt-1">Rango: <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+				  
                     <p>Capital: Cobrando</p>
                     <p>VI: ?</p>
                     
 				</div>
                 
-				<div class="product-item cobrando bajista algo-bajista centro"> <a href="Options_Strats/RatioCallsSintetico.html"><img src="Images/Opciones strats/RCSints/Preview.png" alt="" ></a>
+				<div class="product-item cobrando bajista algo-bajista centro"> <a href="Options_Strats/RatioCallsSintetico.html"><img src="Images/Opciones strats/RCSints/finish.png" alt="" ></a>
 					<a href="Options_Strats/RatioPutsSintetico.html">Ratios Sinteticos de Calls</a>
-                    <p>Rango Ganancia: Bajista - Algo Bajista - Centro</p>
+                    
+				  <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> </p>
+					
                     <p>Capital: Cobrando</p>
                     <p>VI: ?</p>
 			  </div>
               
-              <div class="product-item pagando bajista algo-bajista centro algo-alcista alcista"> <a href="Options_Strats/Collars.html"><img src="Images/Opciones strats/Collars/Preview.png" alt="Collars" ></a>
+              <div class="product-item pagando bajista algo-bajista centro algo-alcista alcista"> <a href="Options_Strats/Collars.html"><img src="Images/Opciones strats/Collars/finish.png" alt="Collars" ></a>
 					<a href="Options_Strats/Collars.html">Collars</a>
                     
-                    <p>Rango Ganancia: Bajista - Algo Bajista - Centro - Algo Alcista - Alcista</p>
+                <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+				  
 					<p>Capital: Pagando</p>
 					<p>VI Calls: Alta</p>
 					<p>VI Puts: Baja</p>
@@ -200,7 +289,8 @@
             <div class="product-item cobrando centro algo-alcista"> <a href="Options_Strats/RatioCalls.html"><img src="Images/Opciones strats/RCCalls/Graph.png" alt="Ratio Calls" ></a>
 					<a href="Options_Strats/Collars.html">Ratio de Calls</a>
                     
-                    <p>Rango Ganancia: Centro - Algo Alcista</p>
+                    <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+				
 					<p>Capital: Cobrando</p>
 					<p>VI Calls: Alta</p>
 			  </div>
@@ -208,7 +298,8 @@
               <div class="product-item cobrando centro algo-bajista"> <a href="Options_Strats/RatioPuts.html"><img src="Images/Opciones strats/RCPuts/preview.png" alt="Ratio Calls" ></a>
 					<a href="Options_Strats/RatioPuts.html">Ratio de Puts</a>
                     
-                <p>Rango Ganancia: Centro - Algo Alcista</p>
+                	<p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+				  
 					<p>Capital: Cobrando</p>
 					<p>VI Puts: Alta</p>
 			  </div>
@@ -216,7 +307,8 @@
               <div class="product-item cobrando bajista algo-bajista centro alcista"> <a href="Options_Strats/RatioInvCalls.html"><img src="Images/Opciones strats/RICall/Finish.png" alt="Ratio Calls" ></a>
 					<a href="Options_Strats/RatioInvCalls.html">Ratio Invertido de Calls</a>
                     
-                    <p>Rango Ganancia: Bajista - Algo Bajista - Centro - Alcista</p>
+                    <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+				  
 					<p>Capital: Cobrando</p>
 					<p>VI Calls: Baja</p>
 			  </div>
@@ -224,11 +316,11 @@
               <div class="product-item cobrando bajista centro algo-alcista alcista"> <a href="Options_Strats/RatioInvPuts.html"><img src="Images/Opciones strats/RIPuts/graph.png" alt="Ratio Invertido Puts" ></a>
 					<a href="Options_Strats/RatioInvPuts.html">Ratio Invertido de Puts</a>
                     
-                <p>Rango Ganancia: Bajista - Centro - Algo Alcista - Alcista</p>
+                	<p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+				  
 					<p>Capital: Cobrando</p>
 					<p>VI Puts: Baja</p>
 			  </div>
-		  </section>
 		</div>
 	</div>
   
@@ -237,4 +329,8 @@
 </div>
 
 </body>
+	
+<!-- Boostrap Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	
 <!-- InstanceEnd --></html>
