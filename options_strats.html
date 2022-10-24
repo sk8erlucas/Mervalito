@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	
-<script>	
+<script>
 	$(document).ready(function(){
 		$("input[type=checkbox]").change(Filter);
 		$("input[type=radio]").click(Filter);
@@ -98,21 +98,62 @@
 			
 			if (Cobrando == true)
 			{
+				// Hacer en funcion
 				if (MostrarCobrando == true)
-				{
-					$(this).show();
+				{					
+					// Buscar segun rango
 					
-					//Aca debe buscar segun el rango
+					if (bajista)
+					{
+						if (MostrarBajista) $(this).show();
+					}
+					
+					if (algoBajista)
+					{
+						if (MostrarAlgoBajista) $(this).show();
+					}
+					if (centro)
+					{
+						if (MostrarCentro) $(this).show();
+					}
+					if (algoAlcista)
+					{
+						if (MostrarAlgoAlcista) $(this).show();
+					}
+					if (alcista)
+					{
+						if (MostrarAlcista) $(this).show();
+					}
 				}
 			}
 			
 			if (Pagando == true)
 			{
 				if (MostrarPagando == true)
-				{
-					$(this).show();
-					
-					//Aca debe buscar segun el rango
+				{			
+					// Buscar segun rango
+
+					if (bajista)
+					{
+						if (MostrarBajista) $(this).show();
+					}
+
+					if (algoBajista)
+					{
+						if (MostrarAlgoBajista) $(this).show();
+					}
+					if (centro)
+					{
+						if (MostrarCentro) $(this).show();
+					}
+					if (algoAlcista)
+					{
+						if (MostrarAlgoAlcista) $(this).show();
+					}
+					if (alcista)
+					{
+						if (MostrarAlcista) $(this).show();
+					}
 				}
 			}
 		})
@@ -210,6 +251,24 @@
 				  <input class="form-check-input" type="checkbox" id="alcista" checked>
 				  <label class="form-check-label" for="alcista">Alcista</label>
 				</div>
+				
+				<div class="mt-5">
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9197949741759619"
+					 crossorigin="anonymous"></script>
+					 
+					<!-- Mervalito - Left search -->
+					<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-9197949741759619"
+					 data-ad-slot="5723391626"
+					 data-ad-format="auto"
+					 data-full-width-responsive="true"></ins>
+					
+					<script>
+					 (adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+					
+				</div>
                 
 		  </div>
             
@@ -222,9 +281,8 @@
                     
                   	<p class="mt-1">Rango: <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i></p>
 
-					  <p>Capital: Pagando</p>
-					  <p>VI Calls: Alta</p>
-					  <p>VI Puts: Indistinto</p>
+					  <p>Capital: <i class="bi bi-cash-stack text-danger"></i></p>
+					  <p>VI Calls: <i class="bi bi-thermometer-high text-bg-danger"></i><br /></p>
                     
 			  </div>
               
@@ -235,9 +293,8 @@
                     
                 	<p class="mt-1">Rango: <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i></p>
 				  
-                  <p>Capital: Pagando</p>
-                  <p>VI Calls: Alta</p>
-                  <p>VI Puts: Indistinto</p>
+                  <p>Capital: <i class="bi bi-cash-stack text-danger"></i></p>
+                  <p>VI Calls: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
                     
 			  </div>
               
@@ -248,9 +305,8 @@
 				  
                     <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i></p>
 				  
-                    <p>Capital: Pagando</p>
-                    <p>VI Calls: Alta</p>
-                    <p>VI Puts: Indistinto</p>
+                    <p>Capital: <i class="bi bi-cash-stack text-danger"></i></p>
+                    <p>VI Calls: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
                     
 			  </div>
               
@@ -262,8 +318,8 @@
                     
                	<p class="mt-1">Rango: <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
 				  
-                    <p>Capital: Cobrando</p>
-                    <p>VI: ?</p>
+                    <p>Capital: <i class="bi bi-cash-stack text-success"></i></p>
+                    <p>VI Puts: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
                     
 				</div>
                 
@@ -272,8 +328,8 @@
                     
 				  <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> </p>
 					
-                    <p>Capital: Cobrando</p>
-                    <p>VI: ?</p>
+                    <p>Capital: <i class="bi bi-cash-stack text-success"></i></p>
+                    <p><p>VI Calls: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
 			  </div>
               
               <div class="product-item pagando bajista algo-bajista centro algo-alcista alcista"> <a href="Options_Strats/Collars.html"><img src="Images/Opciones strats/Collars/finish.png" alt="Collars" ></a>
@@ -281,45 +337,45 @@
                     
                 <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
 				  
-					<p>Capital: Pagando</p>
-					<p>VI Calls: Alta</p>
-					<p>VI Puts: Baja</p>
+					<p>Capital: <i class="bi bi-cash-stack text-danger"></i></p>
+					<p>VI Calls: <i class="bi bi-thermometer-high text-bg-danger"></i><br />
+					VI Puts: <i class="bi bi-thermometer-low text-bg-success"></i></p>
 			  </div>
 			
-            <div class="product-item cobrando centro algo-alcista"> <a href="Options_Strats/RatioCalls.html"><img src="Images/Opciones strats/RCCalls/Graph.png" alt="Ratio Calls" ></a>
+            <div class="product-item cobrando centro algo-alcista"> <a href="Options_Strats/RatioCalls.html"><img src="Images/Opciones strats/RCCalls/finush.png" alt="Ratio Calls" ></a>
 					<a href="Options_Strats/Collars.html">Ratio de Calls</a>
                     
-                    <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+              <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> </p>
 				
-					<p>Capital: Cobrando</p>
-					<p>VI Calls: Alta</p>
+					<p>Capital: <i class="bi bi-cash-stack text-success"></i></p>
+					<p>VI Calls: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
 			  </div>
               
-              <div class="product-item cobrando centro algo-bajista"> <a href="Options_Strats/RatioPuts.html"><img src="Images/Opciones strats/RCPuts/preview.png" alt="Ratio Calls" ></a>
+              <div class="product-item cobrando centro algo-bajista"> <a href="Options_Strats/RatioPuts.html"><img src="Images/Opciones strats/RCPuts/finush.png" alt="Ratio Calls" ></a>
 					<a href="Options_Strats/RatioPuts.html">Ratio de Puts</a>
                     
-                	<p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+               	<p class="mt-1">Rango: <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
 				  
-					<p>Capital: Cobrando</p>
-					<p>VI Puts: Alta</p>
+					<p>Capital: <i class="bi bi-cash-stack text-success"></i></p>
+					<p>VI Puts: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
 			  </div>
               
-              <div class="product-item cobrando bajista algo-bajista centro alcista"> <a href="Options_Strats/RatioInvCalls.html"><img src="Images/Opciones strats/RICall/Finish.png" alt="Ratio Calls" ></a>
+              <div class="product-item cobrando bajista algo-bajista centro alcista"> <a href="Options_Strats/RatioInvCalls.html"><img src="Images/Opciones strats/RICall/Finush.png" alt="Ratio Calls" ></a>
 					<a href="Options_Strats/RatioInvCalls.html">Ratio Invertido de Calls</a>
                     
-                    <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+                <p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
 				  
-					<p>Capital: Cobrando</p>
-					<p>VI Calls: Baja</p>
+					<p>Capital: <i class="bi bi-cash-stack text-success"></i></p>
+					<p>VI Calls: <i class="bi bi-thermometer-low text-bg-success"></i></p>
 			  </div>
               
-              <div class="product-item cobrando bajista centro algo-alcista alcista"> <a href="Options_Strats/RatioInvPuts.html"><img src="Images/Opciones strats/RIPuts/graph.png" alt="Ratio Invertido Puts" ></a>
+              <div class="product-item cobrando bajista centro algo-alcista alcista"> <a href="Options_Strats/RatioInvPuts.html"><img src="Images/Opciones strats/RIPuts/finush.png" alt="Ratio Invertido Puts" ></a>
 					<a href="Options_Strats/RatioInvPuts.html">Ratio Invertido de Puts</a>
                     
-                	<p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-down-short text-danger"></i> <i class="bi bi-align-center text-warning"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
+               	<p class="mt-1">Rango: <i class="bi bi-arrow-down bg-danger text-white"></i> <i class="bi bi-arrow-up-short text-success"></i> <i class="bi bi-arrow-up bg-success text-white"></i> </p>
 				  
-					<p>Capital: Cobrando</p>
-					<p>VI Puts: Baja</p>
+					<p>Capital: <i class="bi bi-cash-stack text-success"></i></p>
+					<p>VI Puts: <i class="bi bi-thermometer-high text-bg-danger"></i></p>
 			  </div>
 		</div>
 	</div>
